@@ -5,17 +5,27 @@ import './index.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 300000, // 5 minutes
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
-    </React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <React.StrictMode>
+        <ChakraProvider>
+          <App />
+        </ChakraProvider>
+      </React.StrictMode>
+    </QueryClientProvider>
   </BrowserRouter>,
 )
 

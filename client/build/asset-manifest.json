@@ -1,17 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.c244df8c.css",
-    "main.js": "/static/js/main.66fec7fb.js",
+    "main.css": "/static/css/main.62da127a.css",
+    "main.js": "/static/js/main.d6d4034d.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/background-image.png": "/static/media/background-image.db819be58be33be5f661.png",
+    "static/media/successfully-done.gif": "/static/media/successfully-done.0c52369c17105e5b1085.gif",
+    "static/media/psql.svg": "/static/media/psql.85859178d9f5f7dd7ccebde535583514.svg",
+    "static/media/gcp.svg": "/static/media/gcp.4bf749b2e937aecf9536229ac5600d40.svg",
+    "static/media/aws.svg": "/static/media/aws.3a559456630f7d22f139dd16e24af0e4.svg",
+    "static/media/redis.svg": "/static/media/redis.c873ce9af4d8646535da0b399c1f4b71.svg",
     "static/media/bro.png": "/static/media/bro.a916e4d60456ea13c8e6.png",
+    "static/media/mongodb.svg": "/static/media/mongodb.424922f5056ab99806c7b1f1d7b08bc9.svg",
+    "static/media/gitlab.svg": "/static/media/gitlab.f739053a6e40a0119576c5d7bfc616a6.svg",
+    "static/media/github.svg": "/static/media/github.b78da85e8c3d577917444c28f6a9e949.svg",
+    "static/media/bitbucket.svg": "/static/media/bitbucket.bf554959947a8ec24b7b400c6edaf253.svg",
     "index.html": "/index.html",
-    "main.c244df8c.css.map": "/static/css/main.c244df8c.css.map",
-    "main.66fec7fb.js.map": "/static/js/main.66fec7fb.js.map",
+    "main.62da127a.css.map": "/static/css/main.62da127a.css.map",
+    "main.d6d4034d.js.map": "/static/js/main.d6d4034d.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c244df8c.css",
-    "static/js/main.66fec7fb.js"
+    "static/css/main.62da127a.css",
+    "static/js/main.d6d4034d.js"
   ]
 }

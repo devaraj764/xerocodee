@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap");
-/* font-family: 'Nunito', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -22,9 +21,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
+  padding: 10px;
 }
 
 .form-input {
   border: 2px solid #ccc !important;
+}
+
+
+
+@media screen and (max-width: 992px) {
+  .auth-image {
+    display: none;
+  }
+  .wave-vector{
+    display: none;
+  }
 }

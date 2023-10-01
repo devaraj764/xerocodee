@@ -3,7 +3,7 @@ import React from 'react'
 import Logo from '../assets/logo.png'
 
 type Props = {
-    children: JSX.Element[]
+    children: JSX.Element[] | JSX.Element
 }
 
 const FillDetailsLayout: React.FC<Props> = ({ children }) => {

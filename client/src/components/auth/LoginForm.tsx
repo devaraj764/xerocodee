@@ -6,7 +6,11 @@ import {
     Button,
     Text,
     Stack,
+    useToast,
 } from '@chakra-ui/react';
+import { useMutation } from 'react-query';
+import { TLoginData, login } from '../../api/auth';
+import { useNavigate } from 'react-router-dom';
 
 type FormValues = {
     email: string;
@@ -20,15 +24,33 @@ const LoginForm: React.FC = () => {
         formState: { errors },
     } = useForm<FormValues>();
 
+    const navigate = useNavigate()
+    const toast = useToast();
+
+    const loginMutation = useMutation({
+        mutationFn: (data: TLoginData) => login(data),
+        onSuccess: (data: { token: string }) => {
+            navigate(`/login/success?token=${data.token}`);
+        },
+        onError: (err: any) => {
+            toast({
+                title: 'Error Logging in !',
+                description: err.message,
+                status: 'error', // You can use 'success', 'error', 'warning', or 'info'
+                duration: 5000, // Display duration in milliseconds
+                isClosable: true, // Allow the user to close the toast
+            })
+        }
+    })
+
     const onSubmit: SubmitHandler<FormValues> = (data) => {
         // Here, you can call a function with the form data, e.g., submitSignUp(data)
-        console.log(data);
+        loginMutation.mutate(data);
     };
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%', marginTop: '20px' }}>
             <Stack spacing={5}>
-
                 <FormControl isRequired>
                     <Input
                         className='form-input'
@@ -58,7 +80,6 @@ const LoginForm: React.FC = () => {
                         <Text color="red.500">{errors.password.message}</Text>
                     )}
                 </FormControl>
-
                 <Button type="submit" variant="unstyled" color='#fff' bg={'#1F64FF'}>
                     LOGIN
                 </Button>

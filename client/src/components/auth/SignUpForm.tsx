@@ -6,7 +6,11 @@ import {
     Button,
     Text,
     Stack,
+    useToast,
 } from '@chakra-ui/react';
+import { useMutation } from 'react-query';
+import { TLoginData, TSignupData, signup } from '../../api/auth';
+import { useNavigate } from 'react-router-dom';
 
 type FormValues = {
     firstName: string;
@@ -23,10 +27,34 @@ const SignUpForm: React.FC = () => {
         watch,
         formState: { errors },
     } = useForm<FormValues>();
+    const toast = useToast();
+    const navigate = useNavigate()
+
+    const loginMutation = useMutation({
+        mutationFn: (data: TSignupData) => signup(data),
+        onSuccess: () => {
+            toast({
+                title: 'Signed Up successfully!',
+                status: 'success', // You can use 'success', 'error', 'warning', or 'info'
+                duration: 5000, // Display duration in milliseconds
+                isClosable: true, // Allow the user to close the toast
+            });
+            navigate('/login');
+        },
+        onError: (err: any) => {
+            toast({
+                title: 'Error Signing Up !',
+                description: err.message,
+                status: 'error', // You can use 'success', 'error', 'warning', or 'info'
+                duration: 5000, // Display duration in milliseconds
+                isClosable: true, // Allow the user to close the toast
+            })
+        }
+    })
 
     const onSubmit: SubmitHandler<FormValues> = (data) => {
         // Here, you can call a function with the form data, e.g., submitSignUp(data)
-        console.log(data);
+        loginMutation.mutate(data);
     };
 
     return (

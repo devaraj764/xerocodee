@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    uid: {
+    ssoid: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     firstName: {
         type: String,
@@ -11,11 +12,9 @@ const userSchema = new mongoose.Schema({
     },
     lastName: {
         type: String,
-        required: true,
     },
     email: {
         type: String,
-        required: true,
         unique: true,
     },
     password: {
@@ -26,8 +25,22 @@ const userSchema = new mongoose.Schema({
         enum: ['google', 'github']
     },
     role: {
+        type: {
+            name: {
+                type: String,
+                required: false
+            },
+            designation: {
+                type: String,       
+                required: true
+            }
+        },
+    },
+    companyName: {
         type: String,
-        enum: ['developer', 'organization', 'company'],
+    },
+    orgName: {
+        type: String,
     },
     hostingPlan: {
         type: String,
