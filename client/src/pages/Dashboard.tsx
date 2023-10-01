@@ -4,6 +4,7 @@ import { UserContext } from '../App'
 import Logo from '../assets/logo.png'
 import ChooseConnects from '../components/dashboard/ChooseConnects'
 import ProgressDiv from '../components/dashboard/ProgressDiv'
+import { useNavigate } from 'react-router-dom'
 
 type Props = {}
 export type TConnects = {
@@ -14,7 +15,7 @@ export type TConnects = {
 
 const Dashboard = (props: Props) => {
   const { user, logout } = useContext(UserContext);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [connects, setConnects] = React.useState<TConnects>({
     cloud_provider: '',
@@ -29,6 +30,8 @@ const Dashboard = (props: Props) => {
     if (connects.source_code !== '') setProgress(80);
     if (connects.data_source !== '') setProgress(100);
   }, [connects])
+
+  if(!user) navigate('/')
 
   return (
     <Container maxW='container.xl' px={0}>
