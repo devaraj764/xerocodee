@@ -17,7 +17,6 @@ async function isVerified(req, res, next) {
         res.status(401).send('Unauthorized');
     } catch (err) {
         console.log('Unauthorized')
-        console.log(err)
         res.status(401).send(err.message || 'Unauthorized');
     }
 }

@@ -12,7 +12,7 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID;
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET;
 
-const URL = process.env.NODE_ENV === 'production' ? process.env.PRODUCTION_URL : '';
+const URL = process.env.PRODUCTION_URL;
 
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,

@@ -11,12 +11,13 @@ const backendUrl = process.env.NODE_ENV === 'production' ? '/api' : 'http://loca
 const GitHubButton: React.FC<Props> = (props: Props) => {
 
     const redirectToGithubSSO = async () => {
+        console.log(backendUrl)
         const googleLoginUrl = `${backendUrl}/auth/github`;
         window.location.replace(googleLoginUrl);
     }
     return (
         <Button onClick={redirectToGithubSSO} rightIcon={<Image src={GithubIcon} ml='5px' />} fontSize={'14px'} w='100%' p='6' variant={'outline'}>
-            {props.title || 'Login with Google'}
+            {props.title || 'Login with Github'}
         </Button>
     )
 }
